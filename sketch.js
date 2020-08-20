@@ -3,7 +3,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
-var gameState
+var gameState,score=0;
 
 function preload(){
 
@@ -14,8 +14,7 @@ function setup() {
   world = engine.world;
   Engine.run(engine);
   gameState = "onsling"
-  marker=Bodies.rectangle(140,150,5,5,{isStatic:true});
-  World.add(world,marker);
+
   block1 = new Block(300,200);
   block2 = new Block(350,200);
   block3 = new Block(400,200);
@@ -38,10 +37,15 @@ function setup() {
   block21 = new BlockFour(500,50);
   ball = new Ball(60,150);
   platform = new Platform(500,300);
-  chain = new Chain(marker,ball.body);
+  chain = new Chain({x:140,y:150},ball.body);
 }
 
 function draw() {
+  
+  textSize(35);
+  fill("white");
+  text("score="+ score,300,50);
+
   background(0,0,0);  
   block1.display();
   block2.display();
@@ -72,11 +76,17 @@ function draw() {
   drawSprites();
 }
 function mouseDragged() {
-  if(gameState="onsling"){
+  if(gameState==="onsling"){
     Body.setPosition(ball.body,{x:mouseX,y:mouseY});
   }
 }
 function mouseReleased() {
   chain.fly();
   gameState = "launched";
+}
+
+function keyPressed(){
+  if(keyCode===32){
+    chain.attach(ball.body);
+  }
 }

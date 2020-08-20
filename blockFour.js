@@ -12,7 +12,6 @@ class BlockFour{
         if(this.pos.y>=350){
         World.remove(world,this.body);
         tint(255,this.visibility);
-        this.visibility=this.visibility-5;
         pop();
         }
         else{
@@ -21,6 +20,11 @@ class BlockFour{
         fill("red");
         rect(posBody.x,posBody.y,50,30);
         pop();
+        }
+    }
+    score(){
+        if(this,visibility<0&&this.visibility>=100){
+            score++
         }
     }
 }
