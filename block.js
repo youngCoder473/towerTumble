@@ -5,6 +5,7 @@ class Block{
     }
         this.body=Bodies.rectangle(x,y,50,30,options);
         World.add(world,this.body);
+        this.visibility=250;
     }
     display(){
         push();
@@ -12,6 +13,7 @@ class Block{
         if(this.pos.y>=350){
         World.remove(world,this.body);
         tint(255,this.visibility);
+        this.visibility=this.visibility-5
         pop();
         }
         else{
@@ -23,8 +25,9 @@ class Block{
         }
     }
     score(){
-        if(this,visibility<0&&this.visibility>=100){
+        if(this.visibility<0&&this.visibility>=-100){
             score++
+            console.log("hi");
         }
     }
 }

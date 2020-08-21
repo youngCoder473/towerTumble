@@ -41,32 +41,51 @@ function setup() {
 }
 
 function draw() {
-  
+  background(0,0,0);  
   textSize(35);
   fill("white");
   text("score="+ score,300,50);
 
-  background(0,0,0);  
   block1.display();
+  block1.score();
   block2.display();
+  block2.score();
   block3.display();
+  block3.score();
   block4.display();
+  block4.score();
   block5.display();
+  block5.score();
   block6.display();
+  block6.score();
   block7.display();
+  block7.score();
   block8.display();
+  block8.score();
   block10.display();
+  block10.score();
   block11.display();
+  block12.score();
   block12.display();
+  block12.score();
   block13.display();
+  block13.score();
   block14.display();
+  block14.score();
   block15.display();
+  block15.score();
   block16.display();
+  block16.score();
   block17.display();
+  block17.score();
   block18.display();
+  block18.score();
   block19.display();
+  block19.score();
   block20.display();
+  block20.score();
   block21.display();
+  block21.score();
   ball.display();
   platform.display();
   chain.display();
